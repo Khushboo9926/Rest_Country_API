@@ -10,3 +10,8 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+
+  const isLocal: boolean = /localhost/.test(document.location.host);
+  !isLocal && enableProdMode();
+  platformBrowserDynamic().bootstrapModule(AppModule);
